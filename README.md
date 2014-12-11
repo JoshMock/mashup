@@ -35,8 +35,8 @@ here, `myObject` is going to have its `render` function overwritten and lost.
 We don't want that. That's where mashup comes in:
 
 ```javascript
-var mixin = require('mixin');
-myObject = mixin(myObject, logMixin);
+var mashup = require('mashup');
+myObject = mashup(myObject, logMixin);
 ```
 
 Now, if I ran `myObject.render()`, the original function that shows `#some-div`
@@ -74,8 +74,8 @@ var someOtherMixin = function () {
     }
 };
 
-var mixin = require('mixin');
-bannerAds = mixin(bannerAds, logMixin, pubsubMixin, someOtherMixin);
+var mashup = require('mashup');
+bannerAds = mashup(bannerAds, logMixin, pubsubMixin, someOtherMixin);
 bannerAds.onLoad(); // runs all the onLoad functions!
 ```
 
